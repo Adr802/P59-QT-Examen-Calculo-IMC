@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>419</width>
-    <height>470</height>
+    <height>614</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -75,9 +75,6 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QLineEdit" name="inPeso"/>
-          </item>
           <item row="1" column="1">
            <widget class="QDateEdit" name="inFecha">
             <property name="dateTime">
@@ -102,13 +99,24 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="inEstatura"/>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
              <string>Estatura (cm)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="inEstatura">
+            <property name="maximum">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="inPeso">
+            <property name="maximum">
+             <number>400</number>
             </property>
            </widget>
           </item>
@@ -118,13 +126,6 @@
        <item>
         <widget class="QWidget" name="widget" native="true">
          <layout class="QGridLayout" name="gridLayout">
-          <item row="2" column="1">
-           <widget class="QLabel" name="outPesoMin">
-            <property name="text">
-             <string>0.0 kg</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label">
             <property name="text">
@@ -132,10 +133,10 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="outPesoActual">
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>0.0 kg</string>
+             <string>Peso. Min</string>
             </property>
            </widget>
           </item>
@@ -153,10 +154,17 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
+          <item row="0" column="1">
+           <widget class="QLabel" name="outPesoActual">
             <property name="text">
-             <string>Peso. Min</string>
+             <string>0.0 kg</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="outPesoMin">
+            <property name="text">
+             <string>0.0 kg</string>
             </property>
            </widget>
           </item>
@@ -168,19 +176,204 @@
     </item>
     <item>
      <widget class="QWidget" name="widget_2" native="true">
-      <widget class="QLabel" name="outIMC">
-       <property name="geometry">
-        <rect>
-         <x>160</x>
-         <y>70</y>
-         <width>101</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>AQUI EL GRAFICO</string>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>141</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Grafica</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item>
+           <widget class="QWidget" name="widget_4" native="true">
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="1" column="1">
+              <widget class="QLabel" name="outIMC">
+               <property name="text">
+                <string>.</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_11">
+               <property name="text">
+                <string>IMC(kg/m^2)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_13">
+               <property name="text">
+                <string>Composicion Corporal:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" colspan="2">
+              <widget class="QLabel" name="outIMCNU">
+               <property name="text">
+                <string>.</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="widget_5" native="true">
+            <widget class="QWidget" name="widget_6" native="true">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>71</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(124, 242, 255);</string>
+             </property>
+            </widget>
+            <widget class="Line" name="outLinea">
+             <property name="geometry">
+              <rect>
+               <x>92</x>
+               <y>0</y>
+               <width>4</width>
+               <height>58</height>
+              </rect>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>58</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>4</width>
+               <height>46</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(0, 0, 0);</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+            <widget class="QWidget" name="widget_7" native="true">
+             <property name="geometry">
+              <rect>
+               <x>90</x>
+               <y>10</y>
+               <width>71</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(0, 255, 38);</string>
+             </property>
+            </widget>
+            <widget class="QWidget" name="widget_8" native="true">
+             <property name="geometry">
+              <rect>
+               <x>170</x>
+               <y>10</y>
+               <width>81</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 143, 15);</string>
+             </property>
+            </widget>
+            <widget class="QWidget" name="widget_9" native="true">
+             <property name="geometry">
+              <rect>
+               <x>260</x>
+               <y>10</y>
+               <width>81</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(162, 0, 3);</string>
+             </property>
+            </widget>
+            <zorder>widget_7</zorder>
+            <zorder>widget_8</zorder>
+            <zorder>widget_9</zorder>
+            <zorder>widget_6</zorder>
+            <zorder>outLinea</zorder>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_10" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="leftMargin">
+           <number>21</number>
+          </property>
+          <property name="rightMargin">
+           <number>39</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_12">
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="text">
+             <string>&lt;18.5</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>18.5 - 24.5</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>25.0 -29.9</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>&gt;30.0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>

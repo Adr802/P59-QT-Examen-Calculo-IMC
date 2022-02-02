@@ -27,11 +27,16 @@ private:
     Ui::Principal *ui;
     QList<IMC*> m_lista;
 
+    QString curfile;
+
+    void savefile();
+
     void calcular();
     bool obtenerDatos();
     void ordenar();
+    void moverLinea(float imc);
 
-
+    QString m_Datos;
     QString m_fecha;
     float m_estatura;
     float m_peso;

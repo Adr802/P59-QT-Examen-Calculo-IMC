@@ -8,26 +8,29 @@ Principal::Principal(QWidget *parent)
     ui->setupUi(this);
 
 
-    QString filename = "D:/Adrian/data.txt";
+    QString filename = "../data.txt";
 
     QFile file(filename);
-
+    curfile = filename;
     if(file.exists()){
-        //qDebug()<<"aaaaaaa";
-       if(file.open( QFile::ReadOnly)){
-           //qDebug()<<"aaasdfdsdgfd";
+
+        qDebug()<<"aaaaaaa";
+
+        //SI EL ARCHIVO EXISTE ENTRA ACA
+        if(file.open( QFile::ReadOnly | QFile::Text)){
+            qDebug()<<"aaasdfdsdgfd";
 
             QTextStream entrada(&file);
             while(!entrada.atEnd()){
-                //qDebug()<<"asd";
+                qDebug()<<"asd";
 
                 QString linea = entrada.readLine();
-                QVector<QStringRef>datos = linea.splitRef("-");
+                QVector<QStringRef>datos = linea.splitRef("\t");
+                qDebug()<<datos.size();
                 QString fecha = datos.at(0).toString();
                 QString estatura = datos.at(1).toString();
                 QString peso = datos.at(2).toString();
                 QString imc = datos.at(3).toString();
-
 
 
                 m_lista.append(new IMC(imc.toFloat(),peso.toFloat(),fecha,estatura.toFloat()));
@@ -45,10 +48,11 @@ Principal::Principal(QWidget *parent)
 
             ui->outPesoMax->setText(QString::number(m_lista.at(m_lista.length()-1)->peso(),'f',2) + " kg");
             ui->outPesoMin->setText(QString::number(m_lista.at(0)->peso(),'f',2) + " kg");
-       }
-    }
-    //qDebug()<<"cccccccc";
+        }
 
+    }
+
+    file.close();
 }
 
 Principal::~Principal()
@@ -65,7 +69,7 @@ void Principal::calcular()
     m_IMC = (m_peso)/qPow(m_estatura,2);
 
     qDebug()<<m_IMC;
-
+    ui->outIMCNU->setText(QString::number(m_IMC,'f',2) + " kg");
     if(m_IMC < 18.5){
         ui->outIMC->setText("Peso inferior al normal");
     }else if(m_IMC < 24.9){
@@ -110,6 +114,49 @@ void Principal::ordenar()
     }
 }
 
+void Principal::moverLinea(float imc)
+{
+
+    if(imc <=12){
+        ui->outLinea->setGeometry(12,0,4,58);
+    }else if(imc <= 14){
+        ui->outLinea->setGeometry(33,0,4,58);
+    }else if(imc <= 16){
+        ui->outLinea->setGeometry(57,0,4,58);
+    }else if(imc <= 18.5){
+        ui->outLinea->setGeometry(75,0,4,58);
+
+
+    }else if(imc <= 20){
+        ui->outLinea->setGeometry(92,0,4,58);
+    }else if(imc <= 22){
+        ui->outLinea->setGeometry(110,0,4,58);
+    }else if(imc <= 23){
+        ui->outLinea->setGeometry(134,0,4,58);
+    }else if(imc <= 24.5){
+        ui->outLinea->setGeometry(154,0,4,58);
+
+
+
+    }else if(imc <= 25){
+        ui->outLinea->setGeometry(172,0,4,58);
+    }else if(imc <= 26){
+        ui->outLinea->setGeometry(194,0,4,58);
+    }else if(imc <= 28){
+        ui->outLinea->setGeometry(220,0,4,58);
+    }else if(imc <= 29.9){
+        ui->outLinea->setGeometry(244,0,4,58);
+
+
+    }else if(imc <= 34){
+        ui->outLinea->setGeometry(262,0,4,58);
+    }else if(imc <= 38){
+        ui->outLinea->setGeometry(280,0,4,58);
+    }else if(imc >38){
+        ui->outLinea->setGeometry(334,0,4,58);
+    }
+}
+
 
 void Principal::on_btnCalcular_released()
 {
@@ -117,12 +164,29 @@ void Principal::on_btnCalcular_released()
     if(obtenerDatos()){
         calcular();
         m_lista.append(new IMC(m_IMC,m_peso,m_fecha,m_estatura));
+        moverLinea(m_IMC);
         ordenar();
         ui->outPesoMax->setText(QString::number(m_lista.at(m_lista.length()-1)->peso(),'f',2) + " kg");
         ui->outPesoMin->setText(QString::number(m_lista.at(0)->peso(),'f',2) + " kg");
+
+
+        m_Datos += m_fecha + "\t" + QString::number(m_estatura,'f',2) + "\t" +  QString::number(m_peso,'f',2) + "\t" + QString::number(m_IMC,'f',2) + "\n";
+        savefile();
+
     }else{
         ui->statusbar->showMessage("Campo vacio",3000);
     }
 
+}
+
+void Principal::savefile()
+{
+    QFile file(curfile);
+    if(file.open(QFile::WriteOnly)){
+        file.write(m_Datos.toUtf8());
+    }else{
+        qDebug()<<"N";
+    }
+    file.close();
 }
 
