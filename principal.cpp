@@ -8,7 +8,7 @@ Principal::Principal(QWidget *parent)
     ui->setupUi(this);
 
 
-    QString filename = "../data.txt";
+    QString filename = "D:/Adrian/data.txt";
 
     QFile file(filename);
     curfile = filename;
@@ -25,6 +25,7 @@ Principal::Principal(QWidget *parent)
                 qDebug()<<"asd";
 
                 QString linea = entrada.readLine();
+                m_Datos += linea + "\n";
                 QVector<QStringRef>datos = linea.splitRef("\t");
                 qDebug()<<datos.size();
                 QString fecha = datos.at(0).toString();
@@ -71,13 +72,13 @@ void Principal::calcular()
     qDebug()<<m_IMC;
     ui->outIMCNU->setText(QString::number(m_IMC,'f',2) + " kg");
     if(m_IMC < 18.5){
-        ui->outIMC->setText("Peso inferior al normal");
+        ui->outIMC->setText(tr("Peso inferior al normal"));
     }else if(m_IMC < 24.9){
-        ui->outIMC->setText("Normal");
+        ui->outIMC->setText(tr("Normal"));
     }else if(m_IMC < 29.9){
-        ui->outIMC->setText("Peso superior al normal");
+        ui->outIMC->setText(tr("Peso superior al normal"));
     }else if(m_IMC >=30){
-        ui->outIMC->setText("Obesidad");
+        ui->outIMC->setText(tr("Obesidad"));
     }
 
     qDebug()<<m_fecha;
@@ -174,7 +175,7 @@ void Principal::on_btnCalcular_released()
         savefile();
 
     }else{
-        ui->statusbar->showMessage("Campo vacio",3000);
+        ui->statusbar->showMessage(tr("Campo vacio"),3000);
     }
 
 }

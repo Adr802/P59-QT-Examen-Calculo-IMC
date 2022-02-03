@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Principal</string>
+   <string>Calculo IMC</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -38,7 +38,7 @@
        <item>
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Fecha: 02/02/2002</string>
+          <string>Fecha: 02/02/2022</string>
          </property>
         </widget>
        </item>
