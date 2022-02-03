@@ -13,16 +13,34 @@
   <property name="windowTitle">
    <string>Calculo IMC</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/img/iconAPP.png</normaloff>:/img/iconAPP.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QGroupBox" name="groupBox_2">
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="title">
        <string>Identificacion</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Nombre: Jhosue Adrian Villacres Portocarrero</string>
          </property>
@@ -37,6 +55,13 @@
        </item>
        <item>
         <widget class="QLabel" name="label_5">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Fecha: 02/02/2022</string>
          </property>
@@ -54,15 +79,34 @@
     </item>
     <item>
      <widget class="QWidget" name="widget_3" native="true">
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QGroupBox" name="groupBox">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="title">
           <string>Datos</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="1" column="0">
            <widget class="QLabel" name="label_10">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Fecha:</string>
             </property>
@@ -70,13 +114,30 @@
           </item>
           <item row="4" column="1">
            <widget class="QPushButton" name="btnCalcular">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>33</height>
+             </size>
+            </property>
             <property name="text">
              <string>Calcular</string>
+            </property>
+            <property name="icon">
+             <iconset resource="recursos.qrc">
+              <normaloff>:/img/iconCalcular.png</normaloff>:/img/iconCalcular.png</iconset>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
            <widget class="QDateEdit" name="inFecha">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="dateTime">
              <datetime>
               <hour>0</hour>
@@ -94,6 +155,13 @@
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_8">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Peso (kg)</string>
             </property>
@@ -101,6 +169,13 @@
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_7">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Estatura (cm)</string>
             </property>
@@ -108,6 +183,13 @@
           </item>
           <item row="0" column="1">
            <widget class="QSpinBox" name="inEstatura">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="maximum">
              <number>300</number>
             </property>
@@ -115,6 +197,13 @@
           </item>
           <item row="3" column="1">
            <widget class="QSpinBox" name="inPeso">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="maximum">
              <number>400</number>
             </property>
@@ -128,6 +217,13 @@
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Actual</string>
             </property>
@@ -135,6 +231,13 @@
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Peso. Min</string>
             </property>
@@ -142,6 +245,13 @@
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="text">
              <string>Peso. Max</string>
             </property>
@@ -185,6 +295,14 @@
            <height>141</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+           <kerning>true</kerning>
+          </font>
+         </property>
          <property name="title">
           <string>Grafica</string>
          </property>
@@ -197,6 +315,14 @@
             <layout class="QGridLayout" name="gridLayout_3">
              <item row="1" column="1">
               <widget class="QLabel" name="outIMC">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <kerning>true</kerning>
+                </font>
+               </property>
                <property name="text">
                 <string>.</string>
                </property>
@@ -204,6 +330,14 @@
              </item>
              <item row="0" column="0">
               <widget class="QLabel" name="label_11">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <kerning>true</kerning>
+                </font>
+               </property>
                <property name="text">
                 <string>IMC(kg/m^2)</string>
                </property>
@@ -211,6 +345,14 @@
              </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_13">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <kerning>true</kerning>
+                </font>
+               </property>
                <property name="text">
                 <string>Composicion Corporal:</string>
                </property>
@@ -218,6 +360,14 @@
              </item>
              <item row="0" column="1" colspan="2">
               <widget class="QLabel" name="outIMCNU">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <kerning>true</kerning>
+                </font>
+               </property>
                <property name="text">
                 <string>.</string>
                </property>
@@ -244,7 +394,7 @@
             <widget class="Line" name="outLinea">
              <property name="geometry">
               <rect>
-               <x>92</x>
+               <x>125</x>
                <y>0</y>
                <width>4</width>
                <height>58</height>
@@ -320,6 +470,11 @@
        </item>
        <item>
         <widget class="QWidget" name="widget_10" native="true">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="leftMargin">
            <number>21</number>
@@ -390,6 +545,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

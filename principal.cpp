@@ -7,27 +7,23 @@ Principal::Principal(QWidget *parent)
 {
     ui->setupUi(this);
 
+    //EL ARCHIVO CON LOS DATOS DE IMC SE GUARDA UNA CARPETA ATRAS DE LOS ARCHIVOS DEL PROGRAMA
 
-    QString filename = "D:/Adrian/data.txt";
+    QString filename = "../data.txt";
 
     QFile file(filename);
     curfile = filename;
     if(file.exists()){
 
-        qDebug()<<"aaaaaaa";
-
         //SI EL ARCHIVO EXISTE ENTRA ACA
         if(file.open( QFile::ReadOnly | QFile::Text)){
-            qDebug()<<"aaasdfdsdgfd";
 
             QTextStream entrada(&file);
             while(!entrada.atEnd()){
-                qDebug()<<"asd";
 
                 QString linea = entrada.readLine();
                 m_Datos += linea + "\n";
                 QVector<QStringRef>datos = linea.splitRef("\t");
-                qDebug()<<datos.size();
                 QString fecha = datos.at(0).toString();
                 QString estatura = datos.at(1).toString();
                 QString peso = datos.at(2).toString();
@@ -37,23 +33,14 @@ Principal::Principal(QWidget *parent)
                 m_lista.append(new IMC(imc.toFloat(),peso.toFloat(),fecha,estatura.toFloat()));
 
             }
-            foreach(IMC *p, m_lista){
-                qDebug()<<p->peso()<<endl;
-            }
 
             ordenar();
-            qDebug()<<"as"<<endl;
-            foreach(IMC *p, m_lista){
-                qDebug()<<p->peso()<<endl;
-            }
 
             ui->outPesoMax->setText(QString::number(m_lista.at(m_lista.length()-1)->peso(),'f',2) + " kg");
             ui->outPesoMin->setText(QString::number(m_lista.at(0)->peso(),'f',2) + " kg");
         }
-
     }
 
-    file.close();
 }
 
 Principal::~Principal()
@@ -63,13 +50,9 @@ Principal::~Principal()
 
 void Principal::calcular()
 {
-    qDebug()<<m_peso;
-    qDebug()<<m_estatura;
-
 
     m_IMC = (m_peso)/qPow(m_estatura,2);
 
-    qDebug()<<m_IMC;
     ui->outIMCNU->setText(QString::number(m_IMC,'f',2) + " kg");
     if(m_IMC < 18.5){
         ui->outIMC->setText(tr("Peso inferior al normal"));
@@ -80,9 +63,6 @@ void Principal::calcular()
     }else if(m_IMC >=30){
         ui->outIMC->setText(tr("Obesidad"));
     }
-
-    qDebug()<<m_fecha;
-
 }
 
 bool Principal::obtenerDatos()
@@ -186,7 +166,7 @@ void Principal::savefile()
     if(file.open(QFile::WriteOnly)){
         file.write(m_Datos.toUtf8());
     }else{
-        qDebug()<<"N";
+        QMessageBox::critical(this,"Error al abrir el archivo","No se pudo abrir el archivo con los datos almacenados");
     }
     file.close();
 }

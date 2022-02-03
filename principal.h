@@ -5,7 +5,7 @@
 #include <qmath.h>
 #include <QDebug>
 #include <QFile>
-#include <QDir>
+#include <QMessageBox>
 
 #include "imc.h"
 QT_BEGIN_NAMESPACE
